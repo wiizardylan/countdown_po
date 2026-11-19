@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.sound.min.js"></script>
+<script src="hammer.min.js"></script>
+
+<style>
+
+@font-face { 
+    font-family: "slice"; 
+    src: url("ROBOTOP.ttf") format("truetype");
+}
+    
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+  font-family: "slice";
+  line-height: 1.5;
+  color: #0a6499;
+}
+body{
+    background-color: #ece8e4;
+}
+
+#gameButton{
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    word-wrap: break-word;
+    margin: 0 auto;
+    border-radius: 2px;
+    border: 1px solid rgb(236, 232, 229);
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.wrapper{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}
+</style>
+</head>
+<body>
+
+<div id="container" class="container">
+   
+<div id="wrapper" class="wrapper">
+<p id="demo"></p>
+
+<script>
+
+var countDownDate = new Date("Dec 14, 2026 13:00:00").getTime();
+
+
+var x = setInterval(function() {
+
+ 
+  var now = new Date().getTime();
+    
+  
+  var distance = countDownDate - now;
+    
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+ 
+  document.getElementById("demo").innerHTML = days + " days, " + '<br/>' + hours + " hours, " + '<br/>' + 
+  + minutes + " minutes, " + '<br/>' + "and " + seconds + " seconds";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+<div>
+<button id="gameButton" onclick="window.location.href='gameindex.html'">
+  go to game
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
