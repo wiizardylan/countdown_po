@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+@font-face { 
+    font-family: "slice"; 
+    src: url("ROBOTOP.ttf") format("truetype");
+}
+    
+@font-face { 
+    font-family: "GoodTimes"; 
+    src: url("Good Times Rg.otf") format("opentype");
+}
+
 html, body {
     width: 100vw;
     height: 100vh;
@@ -11,13 +21,19 @@ html, body {
     left: 0;
     right: 0;
     background-color: rgb(10, 100, 153);
-    font-family: 'Poppins', sans-serif;
     color: rgb(236, 232, 229);
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "GoodTimes", sans-serif;
 }
 
 p2{
     font-size: 1rem;
     font-weight: 600;
+    font-family: "Poppins", sans-serif;
 }
 
 #view {
@@ -120,6 +136,7 @@ input:focus, select:focus {
     margin-bottom: 10px;
     font-weight: 600;
     font-size: 3.2rem;
+    font-family: 'GoodTimes', sans-serif;
 }
 #page #view {
     position: absolute;

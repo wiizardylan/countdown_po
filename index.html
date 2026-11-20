@@ -9,14 +9,17 @@
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 @font-face { 
     font-family: "slice"; 
     src: url("ROBOTOP.ttf") format("truetype");
 }
     
 p {
+  grid-row-start: 1;
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
   margin-top: 0px;
   font-family: "slice";
   line-height: 1.5;
@@ -27,19 +30,32 @@ body{
 }
 
 #gameButton{
-    margin-top: 20px;
-    width: auto;
-    height: auto;
-    word-wrap: break-word;
-    margin: 0 auto;
+    grid-row-start: 2;
+    text-align: center;
+    width: 100px;
+    height: 50px;
     border-radius: 2px;
-    border: 1px solid rgb(236, 232, 229);
+    border: 1px solid #0a6499;
+    background-color: #ece8e4;
+    color: #0a6499;
     font-family: 'Poppins', sans-serif;
+}
 
+#gameButton:hover{
+    background-color:  #0a659944;
+    color: #0a6499;
+    font-family: 'Poppins', sans-serif;
 }
 
 .wrapper{
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 10px;
+    grid-template-rows: 1fr 1fr;
     top:0;
     bottom: 0;
     left: 0;
@@ -86,12 +102,10 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
-<div>
-<button id="gameButton" onclick="window.location.href='gameindex.html'">
-  go to game
-</button>
 
-</div>
+<button id="gameButton" onclick="window.location.href='gameindex.html'">
+  Looking for a clue?
+</button>
 
 </div>
 
