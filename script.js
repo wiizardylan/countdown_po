@@ -576,7 +576,7 @@ function rand(max) {
       player = null;
     }
     var e = document.getElementById("diffSelect");
-    difficulty = 2;
+    difficulty = 15;
     cellSize = mazeCanvas.width / difficulty;
     maze = new Maze(difficulty, difficulty);
     draw = new DrawMaze(maze, ctx, cellSize, finishSprite);
