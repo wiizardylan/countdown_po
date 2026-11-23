@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze</title>
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    @font-face { 
+        font-family: "slice"; 
+        src: url("ROBOTOP.ttf") format("truetype");
+    }
+        
+    @font-face { 
+        font-family: "GoodTimes"; 
+        src: url("Good Times Rg.otf") format("opentype");
+    }
+
+    html, body {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(10, 100, 153);
+        color: rgb(236, 232, 229);
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    h2{
+        font-size: 3rem;
+        font-weight: 100;
+        font-family: "slice", sans-serif;
+    }
+
+     h1{
+        font-size: 2rem;
+        font-weight: 100;
+        font-family: "slice", sans-serif;
+    }
+
+     p{
+        font-size: 1rem;
+        font-weight: 300;
+        font-family: "Poppins", sans-serif;
+    }
+
+    p2{
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+    }
+  
+    input, select {
+        cursor: pointer;
+        background-color: rgba(10, 100, 153, 0.7);
+        height: 45px;
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        color: rgb(236, 232, 229);
+        display: inline-block;
+        font-size: 15px;
+        text-align: center;
+        text-decoration: none;
+        appearance: none;
+    }
+    input:hover, select:hover {
+      background-color:rgb(10, 100, 153);
+    }
+    input:active, select:active {
+      background-color: rgb(10, 100, 153);
+    }
+    input:focus, select:focus {
+      outline: none;
+    }
+    .custom-select {
+      display: inline-block;
+    }
+    .custom-select select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-repeat: no-repeat;
+        background-position: 125px center;
+    }
+    #Message-Container {
+        visibility: hidden; 
+        color: rgb(236, 232, 229);
+        display: block;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgb(10, 100, 153);
+        z-index: 1;
+    }
+    #Message-Container #message {
+        width: 400px;
+        height: 300px;
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: -150px;
+    }
+    #page {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      width: auto;
+      margin: auto;
+      gap: 10px;
+      padding: 10px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    #menu{
+        grid-row-start: 1;
+        text-align: center;
+        margin: -30px;
+    }
+
+    #mazeContainer {
+        grid-row-start: 2;
+        opacity: 0;
+        display: inline-block;
+        margin: auto;
+      /* border-radius: 1px; */
+    }
+    #mazeContainer #mazeCanvas {
+        display: block;
+        border: solid 1px rgb(236, 232, 229);
+        height: 400px;
+    }
+   
+    #page #menu h1 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 3.2rem;
+        font-family: 'GoodTimes', sans-serif;
+    }
+    #view {
+        grid-row-start: 2;
+        width: 100%;
+        height: auto;
+    }
+    .border {
+        border: 10px rgb(10, 100, 153) solid;
+        border-radius: 2px;
+    }
+
+    #instructions {
+        grid-row-start: 3;
+        width: 70%;
+        text-align: justify;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+
+    }
+
+    #okBtn {
+        margin-top: 20px;
+        width: auto;
+        height: auto;
+        word-wrap: break-word;
+        margin: 0 auto;
+        border-radius: 2px;
+        border: 1px solid rgb(236, 232, 229);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    #okBtn:hover {
+        margin-top: 20px;
+        width: auto;
+        height: auto;
+        word-wrap: break-word;
+        margin: 0 auto;
+        border-radius: 2px;
+        background-color: rgba(236, 232, 229, 0.2);
+        border: 1px solid rgba(236, 232, 229, 0.7);
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 400px) {
+      input, select {
+          width: 120px;
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div id="page">
+
+    <div id="Message-Container">
+      <div id="message">
+        <h1> Félicitations!</h1>
+        <p>Vous avez terminé le labyrinthe et révélé le secret!</p>
+        <p2>Votre premier indice est... <br><u>TORONTO</u> </p2> <br><br> 
+        <p>Envoyez cette indice à <b>(647) 691-5337</b> par SMS, et si vous êtes le premier, nnous communiquerons avec vous pour vous expliquer comment réclamer vos billets de cinéma!
+          <p>Revenez bientôt pour chercher votre prochain indice...</p> 
+        <!-- <p id="moves"></p> -->
+        <input id="okBtn" type="button" onclick="window.location.href='index.html'" value="Retour à la page d’accueil"/>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="menu">
+     <h2>Jeu de Labyrinthe</h2>
+    </div>
+
+   <!-- <div id="menu">
+      <div class="custom-select">
+        <select id="diffSelect">
+                  <option value="10">Easy</option>
+                  <option value="15">Medium</option>
+                  <option value="25">Hard</option>
+                  <option value="38">Extreme</option>                                      
+              </select>
+      </div>
+      <input id="startMazeBtn" type="button" onclick="makeMaze()" value="Start" />
+    </div> -->
+
+    <div id="view">
+      <div id="mazeContainer">
+        <canvas id="mazeCanvas" class="border" height="1100" width="1100"></canvas>
+      </div>
+    </div>
+
+    <p id="instructions">
+    Faites glisser votre doigt ou utilisez les touches fléchées pour bouger l'ours polaire jusqu'au flocon de neige et dévoiler l'indice... Soyez le premier à découvrir le secret et envoyez-le à <b>(647) 691-5337</b> pour gagner <b>deux billets de cinéma</b> pour un film de votre choix! </p>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+  
+  <script src="./script.js"></script>
+</body>
+</html>

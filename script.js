@@ -507,12 +507,12 @@ function rand(max) {
     let viewWidth = $("#view").width();
     let viewHeight = $("#view").height();
     if (viewHeight < viewWidth) {
-      ctx.canvas.width = viewHeight - viewHeight / 100;
-      ctx.canvas.height = viewHeight - viewHeight / 100;
+      ctx.canvas.width = viewHeight - viewHeight / 125;
+      ctx.canvas.height = viewHeight - viewHeight / 125;
     } else {
-      ctx.canvas.width = viewWidth - viewWidth / 100;
-      ctx.canvas.height = viewWidth - viewWidth / 100;
-    }
+      ctx.canvas.width = viewWidth - viewWidth / 125;
+      ctx.canvas.height = viewWidth - viewWidth / 125;
+    }``
   
     //Load and edit sprites
     var completeOne = false;
@@ -557,11 +557,11 @@ function rand(max) {
     let viewWidth = $("#view").width();
     let viewHeight = $("#view").height();
     if (viewHeight < viewWidth) {
-      ctx.canvas.width = viewHeight - viewHeight / 100;
-      ctx.canvas.height = viewHeight - viewHeight / 100;
+      ctx.canvas.width = viewHeight - viewHeight / 125;
+      ctx.canvas.height = viewHeight - viewHeight / 125;
     } else {
-      ctx.canvas.width = viewWidth - viewWidth / 100;
-      ctx.canvas.height = viewWidth - viewWidth / 100;
+      ctx.canvas.width = viewWidth - viewWidth / 125;
+      ctx.canvas.height = viewWidth - viewWidth / 125;
     }
     cellSize = mazeCanvas.width / difficulty;
     if (player != null) {
@@ -576,7 +576,7 @@ function rand(max) {
       player = null;
     }
     var e = document.getElementById("diffSelect");
-    difficulty = 15;
+    difficulty = 2;
     cellSize = mazeCanvas.width / difficulty;
     maze = new Maze(difficulty, difficulty);
     draw = new DrawMaze(maze, ctx, cellSize, finishSprite);

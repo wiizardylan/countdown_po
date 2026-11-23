@@ -30,15 +30,17 @@ body{
 }
 
 #gameButton{
+    filter: 'url(#melt-filter)';
     grid-row-start: 2;
     text-align: center;
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: auto;
     border-radius: 2px;
     border: 1px solid #0a6499;
     background-color: #ece8e4;
     color: #0a6499;
     font-family: 'Poppins', sans-serif;
+    font-size: 20px;
 }
 
 #gameButton:hover{
@@ -430,8 +432,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
  
-  document.getElementById("demo").innerHTML = days + " days, " + '<br/>' + hours + " hours, " + '<br/>' + 
-  + minutes + " minutes, " + '<br/>' + "and " + seconds + " seconds";
+  document.getElementById("demo").innerHTML = days + " days/jours, " + '<br/>' + hours + " hours/heures, " + '<br/>' + 
+  + minutes + " minutes, " + seconds + " seconds/secondes";
 
   if (distance < 0) {
     clearInterval(x);
@@ -441,11 +443,14 @@ var x = setInterval(function() {
 </script>
 
 <button id="gameButton" onclick="window.location.href='gameindex.html'">
-  Looking for a clue?
+  Looking for a clue? (EN)
+</button>
+
+<button id="gameButton" onclick="window.location.href='gameindexfr.html'">
+  Es-ce-que vous cherchez un indice? (FR)
 </button>
 
 </div>
-
 
 </div>
 

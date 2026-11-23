@@ -32,18 +32,19 @@
         right: 0;
         background-color: rgb(10, 100, 153);
         color: rgb(236, 232, 229);
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     h2{
         font-size: 3rem;
-        font-weight: 600;
+        font-weight: 100;
         font-family: "slice", sans-serif;
-        letter-spacing: 30%;
     }
 
      h1{
         font-size: 2rem;
-        font-weight: 600;
+        font-weight: 100;
         font-family: "slice", sans-serif;
     }
 
@@ -58,25 +59,7 @@
         font-weight: 600;
         font-family: "Poppins", sans-serif;
     }
-
-    #view {
-        margin-top: 30px;
-    }
-
-    #mazeContainer {
-        top: 15px;
-        opacity: 0;
-        display: inline-block;
-        margin: auto;
-      /* border-radius: 1px; */
-    }
-    #mazeContainer #mazeCanvas {
-        margin: 5%;
-        display: block;
-        border: solid 1px rgb(236, 232, 229);
-        height: 400px;
-    }
-
+  
     input, select {
         cursor: pointer;
         background-color: rgba(10, 100, 153, 0.7);
@@ -115,7 +98,7 @@
         visibility: hidden; 
         color: rgb(236, 232, 229);
         display: block;
-        width: 70vw;
+        width: 100%;
         height: 100vh;
         position: fixed;
         top: 0;
@@ -129,32 +112,45 @@
         width: 400px;
         height: 300px;
         position: fixed;
-        top: 50%;
+        top: 20%;
         left: 50%;
         margin-left: -200px;
         margin-top: -150px;
     }
     #page {
+      display: flex;
+      flex-direction: column;
       text-align: center;
+      justify-content: center;
+      align-items: center;
       height: auto;
       width: auto;
       margin: auto;
+      gap: 10px;
+      padding: 10px;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
 
     #menu{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        grid-row-start: 1;
+        text-align: center;
+        margin: -30px;
     }
-    #page {
+
+    #mazeContainer {
+        grid-row-start: 2;
+        opacity: 0;
+        display: inline-block;
         margin: auto;
-        bottom: 50px;
-        width: 100%;
-        padding: 10px;
-        height: 65px;
-        box-sizing: border-box;
+      /* border-radius: 1px; */
     }
+    #mazeContainer #mazeCanvas {
+        display: block;
+        border: solid 1px rgb(236, 232, 229);
+        height: 400px;
+    }
+   
     #page #menu h1 {
         margin: 0;
         margin-bottom: 10px;
@@ -162,12 +158,8 @@
         font-size: 3.2rem;
         font-family: 'GoodTimes', sans-serif;
     }
-    #page #view {
-        position: absolute;
-        top: 65px;
-        bottom: 0;
-        left: 0;
-        right: 0;
+    #view {
+        grid-row-start: 2;
         width: 100%;
         height: auto;
     }
@@ -177,13 +169,11 @@
     }
 
     #instructions {
-        margin-top: 500px;
-        width: 30%;
-        margin-left: auto;
-        margin-right: auto;
+        grid-row-start: 3;
+        width: 70%;
         text-align: justify;
         font-family: "Poppins", sans-serif;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     #okBtn {
@@ -226,10 +216,12 @@
     <div id="Message-Container">
       <div id="message">
         <h1>Congratulations!</h1>
-        <p>You have completed the maze and unveiled the secret!</p>
-        <p2>the secret passphrase is... <br><u>TORONTO</u></p2><br><br>
+        <p>You have completed the maze and unveiled the secret! 
+        <p2>Your first clue is... <br><u>TORONTO</u> </p2>
+        <p> Send this clue to <b>(647) 691-5337</b> via text message, and if you are the first to do so, we'll follow up with how to claim your movie tickets! </p>
+          <p> Come back soon to search for your next clue... </p> 
         <!-- <p id="moves"></p> -->
-        <input id="okBtn" type="button" onclick="toggleVisablity('Message-Container')" value="Return Home"/>
+        <input id="okBtn" type="button" onclick="window.location.href='index.html'" value="Return Home"/>
       </div>
     </div>
 
@@ -257,9 +249,8 @@
       </div>
     </div>
 
-    <p id="instructions">Swipe or use arrow keys to move the polar bear to the snowflake and reveal the clue... Be the first to reveal the secret and send it to (#####) for a prize!</p>
-
-  </div>
+  
+    <p id="instructions">Swipe or use arrow keys to move the polar bear to the snowflake and reveal the clue... Be the first to reveal the secret and send it to <b>(647) 691-5337</b> to win <b>two movie tickets</b> to a movie of your choice! </p>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
