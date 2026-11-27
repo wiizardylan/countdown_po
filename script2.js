@@ -830,8 +830,8 @@ $(function () {
     words, 
     '#puzzle', 
     '#words', 
-    { height:12, 
-      width:12, 
+    { height:11, 
+      width:11, 
       fillBlanks: true
     }); 
   $('#solve').click( function() {
